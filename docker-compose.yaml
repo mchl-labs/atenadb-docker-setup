@@ -1,0 +1,48 @@
+version: '3.4'
+
+services:
+  atenadb:
+    image: ghcr.io/mchl-coder/atena/atena:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      # ASPNETCORE_Kestrel__Certificates__Default__Password: atena
+      # ASPNETCORE_Kestrel__Certificates__Default__Path: client.pfx
+    ports:
+      - 5001:5001
+      - 5000:5000
+    volumes:
+      - data:/data/atena
+    restart: on-failure
+
+  prometheus:
+    image: prometheus
+    build:
+      context: ./Prometheus
+      dockerfile: ./Dockerfile
+    ports:
+      - 9090:9090
+    volumes:
+      - prometheus_data:/prometheus
+    links:
+      - atenadb
+
+  grafana:
+    image: grafana/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=pass
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    links:
+      - "prometheus:prom"
+
+volumes: 
+  data:
+  prometheus_data:
+  grafana_data:
