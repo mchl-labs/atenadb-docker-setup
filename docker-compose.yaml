@@ -3,9 +3,6 @@ version: '3.4'
 services:
   atenadb:
     image: ghcr.io/mchl-coder/atena/atena:latest
-    build:
-      context: .
-      dockerfile: ./Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       # ASPNETCORE_Kestrel__Certificates__Default__Password: atena
