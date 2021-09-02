@@ -11,7 +11,7 @@ Atena provides only strings as data key/value type. This makes it extremely vers
 
 > 💡: With strings we can serialize every data structure into a string with JSON or Protobuf and then store it in Atena.
 
-## 3 DB Engine available
+## 3 DB Engines available
 
 We provide engines for every need:
 
