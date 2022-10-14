@@ -1,8 +1,8 @@
-version: '3.4'
+version: "3.4"
 
 services:
   atenadb:
-    image: ghcr.io/mchl-coder/atena/atena:latest
+    image: ghcr.io/mchl-labs/atena/atena:latest
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       # ASPNETCORE_Kestrel__Certificates__Default__Password: atena
@@ -39,7 +39,7 @@ services:
     links:
       - "prometheus:prom"
 
-volumes: 
+volumes:
   data:
   prometheus_data:
   grafana_data:

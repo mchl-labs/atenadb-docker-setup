@@ -2,7 +2,8 @@
 
 ![Atena](Atena.png "Atena Logo")
 
-![CI/CD Docker](https://github.com/mchl-coder/atena/workflows/Docker/badge.svg)
+![CI/CD Docker](https://github.com/mchl-labs/atena/workflows/Docker/badge.svg)
+
 ### Atena DB is easy to use db equipped with everything you need, don't waste time with boring and endless config, think to develop! Atena will take care of the rest.
 
 ## Data Structures K/V
@@ -59,7 +60,7 @@ Atena Metrics are exposed at :5000/metrics.
 > ⚠️: With k8s `yourlocation` may be different see your services and or ingress
 2. In Grafana login with admin credentials (user: admin, password: pass ) and add a datasource. Add Prometheus URL:"http://prometheus:9090" and then import "Prometheus Stats" Dashboard.
 3. After that import the 10427 e 10915 dashboards.
-4. Finally import a new dashboard from JSON using the file [Grafana Dashboard.json](https://github.com/mchl-coder/atenadb-docker-setup/blob/master/Grafana%20Dashboard.json) that you find in your cloned repo.
+4. Finally import a new dashboard from JSON using the file [Grafana Dashboard.json](https://github.com/mchl-labs/atenadb-docker-setup/blob/master/Grafana%20Dashboard.json) that you find in your cloned repo.
 
 ## Drivers
 
@@ -74,6 +75,7 @@ From C# and Go you can completly manage Atena. Atena is written in C# (.NET core
 New languages support soon!
 
 ## Atena engines options
+
 ### In-memory DB - RBTree
 
 CRUD operations and transactions on DB are made in `log` time (`O(log n)`). Atena is based on an RedBlack Tree implementation in C#.
@@ -82,7 +84,7 @@ CRUD operations and transactions on DB are made in `log` time (`O(log n)`). Aten
 
 LFU and on-disk persistence features can be enabled for any DB from the C# connector at the DB connect time. LFU is powered by a smart algorithm to keep under control the memory usage by the DB. LFU enables when the records exceed half one million and the number of get requests are around 800000. At every optimization the counters which manage the LFU are randomly setted.
 
-> **Note:** LFU works very fine with on-disk persistence enabled because working together  they avoid data loss, optimizing the response time and space usage of Atena.
+> **Note:** LFU works very fine with on-disk persistence enabled because working together they avoid data loss, optimizing the response time and space usage of Atena.
 
 ## Security
 
