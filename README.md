@@ -105,7 +105,3 @@ Atena DB is cross-platform and is available in:
 * Linux
 * macOS
 * ARM
-
-## Next Features - Coming Soon :dart:
-
-- Distributed DB with HA ( High Availability ) as Cluster
